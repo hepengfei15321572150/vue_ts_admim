@@ -3,6 +3,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 
+//初始化样式
+import './assets/reset.css';
+
 //ajax
 import Http from './http/http';
 Vue.prototype.$axios = new Http({
@@ -18,7 +21,6 @@ Vue.prototype.$axios.addHeader({
 Vue.prototype.$log = function( str ){
     console.log( str );
 };
-
 
 //使用elementUi
 import ElementUI from 'element-ui';

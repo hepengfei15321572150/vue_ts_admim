@@ -1,7 +1,21 @@
 <template>
     <div id="app">
-        <slidebar></slidebar>
-        <router-view></router-view>
+        <template v-if="$route.name !== '404'">
+            <!-- 登录页 -->
+            <template v-if="$route.name.indexOf('login') !== -1">
+                <router-view></router-view>
+            </template>
+
+            <!-- 普通页 -->
+            <template v-if="$route.name.indexOf('login') === -1">
+                <layout></layout>
+            </template>
+        </template>
+
+        <!-- 404 -->
+        <template v-if="$route.name === '404'">
+            <router-view></router-view>
+        </template>
     </div>
 </template>
 
@@ -9,11 +23,11 @@
 import { Vue, Component, Watch, Prop } from "vue-property-decorator";
 import { State } from "vuex-class";
 
-import slidebar from "@/pages/slidebar/slidebar.vue";
+import layout from "@/pages/layout/layout.vue";
 
 @Component({
     components: {
-        slidebar
+        layout
     }
 })
 export default class App extends Vue {
@@ -22,6 +36,10 @@ export default class App extends Vue {
     b: number = 1;
 
     @State("a") state1;
+
+    created(): void {
+        this.$log(this.$router);
+    }
 
     async a() {
         this.$message({
@@ -46,13 +64,10 @@ export default class App extends Vue {
 
 <style lang="less">
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 60px;
-    img {
-        width: 100px;
+    height: 100%;
+    > div {
+        height: 100%;
+        overflow: auto;
     }
 }
 </style>

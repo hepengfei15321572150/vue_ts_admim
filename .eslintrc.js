@@ -22,17 +22,18 @@ module.exports = {
     // add your custom rules here
     rules: {
         //首行缩进一个table
-        'indent':['error',4],
+        'indent': ['error', 4],
         //强制使用双引号
         "quotes": [0],
         // //结尾必须添加分号
-        "semi": ['error','always'],
+        "semi": ['error', 'always'],
         //  // 禁止在对象字面量中出现重复名称的键名
         'no-dupe-keys': 'error',
         // 关闭函数名称后面的空格
-        'space-before-function-paren':0,
+        'space-before-function-paren': 0,
         //未使用变量不报错
-        'no-unused-vars':0,
+        'no-unused-vars': 0,
+        "spaced-comment": 0,
 
 
         // // allow async-await
