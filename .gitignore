@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+dist/
+
+npm-debug.log*
+selenium-debug.log
+
+/.idea
+/.vagrant
+/.vscode
+*.DS_Store
+._*
+.vscode
+.DS_Store
